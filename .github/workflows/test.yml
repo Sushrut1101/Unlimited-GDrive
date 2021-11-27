@@ -1,0 +1,37 @@
+name: Test Rclone Script
+ 
+on:
+  push:
+    paths-ignore:
+      - '*.md'
+    branches: [ main ]
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: Checkouts
+         uses: actions/checkout@v2
+       
+       - name: Setup
+         run: |
+              sudo apt update && sudo apt install rclone -y
+        
+       - name: Export Vars and Start Testing
+         run: |
+              export REMOTE="Test"
+              export TEAM_DRIVE=$(echo "${{ secrets.TEAM_DRIVE }}")
+              export CLIENT_ID=$(echo "${{ secrets.CLIENT_ID }}")
+              export CLIENT_SECRET=$(echo "${{ secrets.CLIENT_SECRET }}")
+              export ACCESS_TOKEN=$(echo "${{ secrets.ACCESS_TOKEN }}")
+              export DRIVE_FOLDER_ID=$(echo "${{ secrets.DRIVE_FOLDER_ID }}")
+              sleep 1
+              echo "Staring the Script..."
+              sleep 2
+              sudo bash setup_rclone.sh
