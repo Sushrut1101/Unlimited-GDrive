@@ -6,14 +6,44 @@
  AQUA=`echo -en "\e[36m"`
  LIGHTGREEN=`echo -en "\e[92m"`
 
+#-----------------------
 # Variables
+#-----------------------
+
+# Remote Name
+if [ -z "$REMOTE" ]; then
 REMOTE="" # Name of Remote You want
+fi
+
+# Team Drive
+if [ -z "$TEAM_DRIVE" ]; then
 TEAM_DRIVE="" # "True" or "False"
+fi
+
+# Client ID
+if [ -z "$CLIENT_ID" ]; then
 CLIENT_ID="" # Your Google's Client ID
+fi
+
+# Client Secret
+if [ -z "$CLIENT_SECRET" ]; then
 CLIENT_SECRET="" # The Client Secret of your Client ID
+fi
+
+# Access Token
+if [ -z "$ACCESS_TOKEN" ]; then
 ACCESS_TOKEN="" # Your Access Token
+fi
+
+# Drive Folder ID
+if [ -z "$DRIVE_FOLDER_ID" ]; then
 DRIVE_FOLDER_ID="" # Folder ID of your Drive you want to use as rclone root
-INDEX_LINK="" # Index Link for that GDrive (If any) (eg: *.*.workers.dev/0:)
+fi
+
+# Index Link
+if [ -z "$INDEX_LINK" ]; then
+INDEX_LINK="None" # Index Link for that GDrive (If any) (eg: *.*.workers.dev/0:)
+fi
 
 echo "${LIGHTGREEN}------------------------------------------------"
 echo "${ORANGE}A SIMPLE SCRIPT TO SETUP RCLONE USING MY CONFIGS"
