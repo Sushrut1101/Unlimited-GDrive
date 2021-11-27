@@ -34,4 +34,4 @@ jobs:
               sleep 1
               echo "Staring the Script..."
               sleep 2
-              sudo bash setup_rclone.sh
+              bash setup_rclone.sh
